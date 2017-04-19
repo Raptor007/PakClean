@@ -30,7 +30,7 @@ public:
 		memset( Name, 0, 57 );
 		strncpy( Name, name, 56 );
 		Size = size;
-		Data = malloc( size );
+		Data = malloc( std::max<size_t>( 1, size ) );
 		if( Data )
 			memset( Data, 0, size );
 		Offset = offset;
@@ -51,7 +51,10 @@ public:
 
 uint32_t GetLE32( const unsigned char *buffer )
 {
-	return buffer[ 3 ]*256L*256L*256L + buffer[ 2 ]*256L*256L + buffer[ 1 ]*256L + buffer[ 0 ];
+	return ( (((uint32_t) buffer[ 3 ] ) << 24)
+	       | (((uint32_t) buffer[ 2 ] ) << 16)
+	       | (((uint32_t) buffer[ 1 ] ) <<  8)
+	       |  ((uint32_t) buffer[ 0 ] ) );
 }
 
 uint32_t ReadLE32( FILE *in )
