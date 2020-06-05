@@ -198,7 +198,7 @@ int main( int argc, char **argv )
 			fwrite( item->second->Data, 1, item->second->Size, out );
 		}
 		
-		printf( "Writing directory...\n", out_name.c_str() );
+		printf( "Writing directory...\n" );
 		fflush( stdout );
 		
 		// Write the directory at the end.
@@ -215,7 +215,7 @@ int main( int argc, char **argv )
 		fclose( out );
 		out = NULL;
 		
-		printf( "Done.\n", out_name.c_str() );
+		printf( "Done.\n" );
 		fflush( stdout );
 		
 		// Memory cleanup between files.

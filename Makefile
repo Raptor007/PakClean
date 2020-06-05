@@ -1,3 +1,7 @@
+CXX := g++
+CXXFLAGS := -g -Og -static -Wall -Wextra
+
+
 SYSTEM = $(shell uname -s)
 
 ifneq (,$(findstring MINGW,$(SYSTEM))$(findstring CYGWIN,$(SYSTEM)))
@@ -12,11 +16,11 @@ endif
 
 
 $(EXE): PakClean.o
-	g++ -g -static $< -o $@
+	$(CXX) $(CXXFLAGS) $< -o $@
 	-chmod +x $@
 
 .cpp.o:
-	g++ -g -c $< -o $@
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
 	rm -f $(EXE) *.o
