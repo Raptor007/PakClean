@@ -118,7 +118,7 @@ int main( int argc, char **argv )
 		std::map<std::string,DataFile*> contents;
 		char name[ 57 ] = {0};
 		
-		printf( "Reading directory...\n", argv[ arg ] );
+		printf( "Reading directory...\n" );
 		fflush( stdout );
 		
 		// Read the directory.
